@@ -13,7 +13,6 @@ services:
       WORDPRESS_DB_USER: wp_user
       WORDPRESS_DB_PASSWORD: wp_password
       WORDPRESS_DB_NAME: wp_database
-      MAIL_HOST: "mailhog:1025"
     volumes:
       - ./workdir:/var/www/html
     networks:
@@ -46,15 +45,6 @@ services:
       PMA_PASSWORD: root
     depends_on:
       - db
-    networks:
-      - lmacrealestate
-      
-  mailhog:
-    image: mailhog/mailhog
-    container_name: mailhog
-    ports:
-      - "8025:8025"  # Web UI for MailHog
-      - "1025:1025"  # SMTP port for MailHog
     networks:
       - lmacrealestate
       
